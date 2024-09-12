@@ -11,18 +11,24 @@ class NirabWiShortCode implements ShortcodeContract {
 	public function render( array $attrs, string $content = null ): string {
 		$location = get_option( 'nirab_wi_location' );
 		if ( ! $location ) {
-			return View::render('error-notice', [
-                "notice" => __("No Location set!", 'nirab-wi'),
-            ]);
+			return View::render(
+				'error-notice',
+				array(
+					'notice' => __( 'No Location set!', 'nirab-wi' ),
+				)
+			);
 		}
 
 		$data = WeatherAPI::forecast( $location );
 
-        if ( !$data->success ) {
-            return View::render('error-notice', [
-                "notice" => $data->message,
-            ]);
-        }
+		if ( ! $data->success ) {
+			return View::render(
+				'error-notice',
+				array(
+					'notice' => $data->message,
+				)
+			);
+		}
 
 		array_shift( $data->data->days );
 		$forecasts = $data->data->days;

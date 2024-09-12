@@ -5,26 +5,40 @@ namespace Nirab\WI\Handlers;
 use Nirab\WI\Facades\WeatherAPI;
 use WPDrill\Facades\View;
 
+/**
+ * Handle cron tasks.
+ */
 class CronHandler {
 
+	/**
+	 * Initialize the class.
+	 */
 	public function __construct() {
 		add_action( 'nirab_wi_rain_alert', array( $this, 'send_alert_mail' ) );
 	}
 
+	/**
+	 * Send rain alert email.
+	 *
+	 * @return void
+	 */
 	public function send_alert_mail() {
 		$enable_alert = get_option( 'nirab_wi_enable_alert' );
 		if ( ! $enable_alert ) {
 			return;
 		}
 
-		$location    = get_option( 'nirab_wi_location' );
-		$weatherData = WeatherAPI::nextDayForecast( $location );
+		$location = get_option( 'nirab_wi_location' );
+		if ( ! $location ) {
+			return;
+		}
+		$weather_data = WeatherAPI::nextDayForecast( $location );
 
-		if ( ! $weatherData->success ) {
+		if ( ! $weather_data->success ) {
 			return;
 		}
 
-		$next_day    = $weatherData->data->days[0];
+		$next_day    = $weather_data->data->days[0];
 		$condition   = $next_day->conditions;
 		$description = $next_day->description;
 		$precip_prob = $next_day->precipprob;
