@@ -72,7 +72,7 @@ Define the New Menu: In the menu.php file, use the `Menu::add()` method to defin
 
 ```php
 use WPDrill\Facades\Menu;
-use App\Handlers\ReviewXDashboardMenu;
+use Nirab\WI\Handlers\ReviewXDashboardMenu;
 
 Menu::add('ReviewX Dashboard', new ReviewXDashboardMenu(), 'manage_options')
         ->icon('dashicons-smiley')
@@ -85,7 +85,7 @@ You can use different types of approaches to bind handlers, the previous example
 
 ```php
 use WPDrill\Facades\Menu;
-use App\Handlers\ReviewXDashboardMenu;
+use Nirab\WI\Handlers\ReviewXDashboardMenu;
 
 Menu::add('ReviewX Dashboard', ReviewXDashboardMenu::class , 'manage_options')
         ->icon('dashicons-smiley')
@@ -96,7 +96,7 @@ Menu::add('ReviewX Dashboard', ReviewXDashboardMenu::class , 'manage_options')
 
 ```php
 use WPDrill\Facades\Menu;
-use App\Handlers\ReviewXDashboardMenu;
+use Nirab\WI\Handlers\ReviewXDashboardMenu;
 
 Menu::add('ReviewX Dashboard', [ReviewXDashboardMenu::class, 'dashboard'] , 'manage_options')
         ->icon('dashicons-smiley')
@@ -107,7 +107,7 @@ Menu::add('ReviewX Dashboard', [ReviewXDashboardMenu::class, 'dashboard'] , 'man
 
 ```php
 use WPDrill\Facades\Menu;
-use App\Handlers\ReviewXDashboardMenu;
+use Nirab\WI\Handlers\ReviewXDashboardMenu;
 
 Menu::add('ReviewX Dashboard', function() {
     echo "Dashboard";
@@ -125,7 +125,7 @@ To create a route in WPDrill, you need to define it in the `routes/api.php` file
 
 use WPDrill\Routing\Router;
 
-Router::get('/wpdrill', [\App\Rest\Controllers\WPDrillController::class, 'show']);
+Router::get('/wpdrill', [\Nirab\WI\Rest\Controllers\WPDrillController::class, 'show']);
 ```
 
 In this example, a GET route '/wpdrill' is defined. When this route is accessed, the `show` method of the `WPDrillController` class is executed. Please replace the `WPDrillController` and `show` with the actual controller and method that should handle the request for this route.
@@ -134,9 +134,9 @@ The route controller supports the following
 
 - Invokable Controller Instance (should contains `__invoke()` method in the class instance)
 
-- Invokable class binding, ex: `\App\Rest\Controllers\WPDrillController::class`) (should contains `__invoke()` method in the class)
+- Invokable class binding, ex: `\Nirab\WI\Rest\Controllers\WPDrillController::class`) (should contains `__invoke()` method in the class)
 
-- Class and method mapping, ex: `[\App\Rest\Controllers\WPDrillController::class, 'method_name'`]`
+- Class and method mapping, ex: `[\Nirab\WI\Rest\Controllers\WPDrillController::class, 'method_name'`]`
 
 - Closure
 
@@ -196,7 +196,7 @@ To add a new shortcode in WPDrill, you need to follow these steps:
 1. **Create a new Shortcode Class**: Create a new PHP class that implements the `ShortcodeContract`. This class should define a `render` method that returns the output of the shortcode. Here's an example:
 
 ```php
-namespace App\Shortcodes;
+namespace Nirab\WI\Shortcodes;
 
 use WPDrill\Contracts\ShortcodeContract;
 use WPDrill\Facades\View;
@@ -229,7 +229,7 @@ use WPDrill\Facades\Shortcode;
 use WPDrill\Plugin;
 
 return function(Plugin $plugin) {
-    Shortcode::add('mynewshortcode', \App\Shortcodes\MyNewShortcode::class);
+    Shortcode::add('mynewshortcode', \Nirab\WI\Shortcodes\MyNewShortcode::class);
     // Existing shortcodes...
 };
 ```

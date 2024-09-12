@@ -1,0 +1,9 @@
+{
+  "breadcrumbs.enabled": true,
+  "phpsab.executablePathCS": "./vendor/bin/phpcs",
+  "phpsab.executablePathCBF": "./vendor/bin/phpcbf",
+  "phpsab.standard": "WordPress",
+  "[php]": {
+    "editor.defaultFormatter": "valeryanm.vscode-phpsab"
+  }
+}

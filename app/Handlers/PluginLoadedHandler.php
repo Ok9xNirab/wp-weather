@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Handlers;
+namespace Nirab\WI\Handlers;
 
-use WPDrill\Contracts\InvokableContract;
+class PluginLoadedHandler {
 
-class PluginLoadedHandler implements InvokableContract {
-
-	public function __invoke() {
-		//file_put_contents(REVIEWX_DIR_PATH . 'plugin.txt', 'Plugin Deactivated 1!');
+	public function __construct() {
+		new CronHandler();
+		new WidgetHandler();
 	}
 }

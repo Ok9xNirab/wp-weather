@@ -1,11 +1,11 @@
 <?php
 
-return [
-    'enable_templating' => true,
-    'lexer' => [
-        'tag_comment' => ['{#', '#}'],
-        'tag_block' => ['{%', '%}'],
-        'tag_variable' => ['{{', '}}'],
-        'interpolation' => ['#{', '}']
-    ],
-];
+return array(
+	'enable_templating' => false, // twig template not works well!
+	'lexer'             => array(
+		'tag_comment'   => array( '{#', '#}' ),
+		'tag_block'     => array( '{%', '%}' ),
+		'tag_variable'  => array( '{{', '}}' ),
+		'interpolation' => array( '#{', '}' ),
+	),
+);
