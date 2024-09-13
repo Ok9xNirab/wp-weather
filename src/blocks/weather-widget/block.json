@@ -1,0 +1,12 @@
+{
+    "$schema": "https://raw.githubusercontent.com/WordPress/gutenberg/trunk/schemas/json/block.json",
+    "apiVersion": 2,
+    "name": "nirab-wi/weather-widget",
+    "title": "Weather",
+    "category": "widgets",
+    "description": "Display weather data",
+    "textdomain": "nirab-wi",
+    "attributes": {},
+    "editorScript": "file:./index.js",
+    "style": "file:./index.css"
+}

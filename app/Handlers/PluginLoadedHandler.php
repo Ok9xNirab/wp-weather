@@ -13,5 +13,6 @@ class PluginLoadedHandler {
 	public function __construct() {
 		new CronHandler();
 		new WidgetHandler();
+		new BlockHandler();
 	}
 }

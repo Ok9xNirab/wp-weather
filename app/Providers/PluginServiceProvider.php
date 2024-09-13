@@ -2,9 +2,7 @@
 
 namespace Nirab\WI\Providers;
 
-use Nirab\WI\Ajax;
 use Nirab\WI\Handlers\PluginLoadedHandler;
-use Nirab\WI\Services\LocationApiService;
 use Nirab\WI\Services\WeatherApiService;
 use WPDrill\ServiceProvider;
 

@@ -1,0 +1,42 @@
+.nirab_widget_weather_widget {
+  background: white;
+  border-radius: 4px;
+  border: 1px solid #cccccc;
+  margin-bottom: 20px;
+  padding: 20px 10px;
+}
+.nirab_widget_weather_widget .nirab_widget_weather_heading {
+  text-align: center;
+}
+.nirab_widget_weather_widget .nirab_widget_weather_heading h3,
+.nirab_widget_weather_widget .nirab_widget_weather_heading h4 {
+  margin: 0;
+}
+.nirab_widget_weather_widget .nirab_widget_weather_heading p {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.nirab_widget_weather_widget p {
+  text-align: center;
+  margin: 0;
+  padding-bottom: 2px;
+}
+.nirab_widget_forecast_card {
+  align-items: center;
+  background: white;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+}
+.nirab_widget_forecast_card div {
+  border-radius: 4px;
+  border: 1px solid #cccccc;
+  padding: 10px;
+  text-align: center;
+  min-width: 120px;
+}
+.nirab_widget_forecast_card div p {
+  margin: 0;
+}
+

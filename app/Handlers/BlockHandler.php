@@ -1,49 +1,60 @@
 <?php
 
-namespace Nirab\WI\Widgets;
+namespace Nirab\WI\Handlers;
 
 use Nirab\WI\Facades\WeatherAPI;
 use WPDrill\Facades\View;
 
 /**
- * Classic Weather Widget.
+ * Handle blocks.
  */
-class WeatherWidget extends \WP_Widget {
+class BlockHandler {
 
 	/**
 	 * Initialize the class.
 	 */
 	public function __construct() {
-		$widget_options = array(
-			'classname'   => 'nirab_widget_weather_widget',
-			'description' => __( 'A widget to display weather data', 'nirab-wi' ),
-		);
-		parent::__construct( 'nirab_wi_weather_widget', __( 'Weather Classic Widget', 'nirab-wi' ), $widget_options );
+		add_action( 'init', array( $this, 'register_blocks' ) );
 	}
 
-	public function widget( $args, $instance ) {
+	/**
+	 * Register blocks.
+	 *
+	 * @return void
+	 */
+	public function register_blocks() {
+		register_block_type(
+			NIRAB_DIR_PATH . 'build/blocks/weather-widget',
+			array(
+				'render_callback' => array( $this, 'render_widget' ),
+			)
+		);
+	}
+
+	/**
+	 * Render the weather widget content.
+	 *
+	 * @return string
+	 */
+	public function render_widget() {
 		$location = get_option( 'nirab_wi_location' );
 		if ( ! $location ) {
-			View::output(
+			return View::render(
 				'error-notice',
 				array(
 					'notice' => __( 'No Location set!', 'nirab-wi' ),
 				)
 			);
-
-			return;
 		}
 
 		$data = WeatherAPI::forecast( $location );
 		if ( ! $data->success ) {
-			View::output(
+			return View::render(
 				'error-notice',
 				array(
 					'notice' => $data->message,
 				)
 			);
-
-			return;
 		}
 
 		array_shift( $data->data->days );
@@ -51,7 +62,7 @@ class WeatherWidget extends \WP_Widget {
 		$current   = $data->data->currentConditions;
 		$address   = $data->data->resolvedAddress;
 
-		View::output(
+		return View::render(
 			'widgets/weather',
 			array(
 				'forecasts' => $forecasts,
