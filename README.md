@@ -41,9 +41,12 @@ Couple of plugins i recommend for test this plugin's feature
 I use this weather API:
 https://www.visualcrossing.com/
 
+**API Key** included within config file.
+
 ### Challenges
 
 - Twig template
   - Not supporting wordpress built-in functions. So, I'm using `php` templates.
   - Twig template cache issue on development time. [#1](https://github.com/WPDrill/core/issues/1)
-  - No proper well written documentation. So, I've to read the internal code.
+- **Limitation**: Block development support didn't included!
+- No proper well written documentation. So, I've to read the internal code.
