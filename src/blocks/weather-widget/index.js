@@ -16,14 +16,14 @@ registerBlockType(block.name, {
           <div class="nirab_widget_weather_widget">
             <div class="nirab_widget_weather_heading">
               <h4>{__("Current Weather", "nirab-wi")}</h4>
-              <small>{__("{Location you set}")}</small>
+              <small>{__("{Location you set}", "nirab-wi")}</small>
               <h3>100 &deg;C</h3>
-              <p>Partially Hot</p>
+              <p>{__("Partially Hot", "nirab-wi")}</p>
             </div>
 
             <div class="nirab_widget_forecast">
               <p>
-                <small>7-Day Forecast</small>
+                <small>{__("7-Day Forecast", "nirab-wi")}</small>
               </p>
               <div class="nirab_widget_forecast_card">
                 <div>
