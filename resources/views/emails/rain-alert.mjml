@@ -1,0 +1,22 @@
+<mjml>
+  <mj-body>
+    <mj-section background-url="http://sdevs.test/images/mail-cover.png" background-size="cover" background-repeat="no-repeat">
+      <mj-column width="600px">
+        <mj-text align="center" color="#000" font-size="20px" font-family="Roboto" font-weight="500">Might rain tomorrow.</mj-text>
+        <mj-text align="center" color="#2D6A98" font-size="16px" font-family="Roboto">Rain, Partially cloudy
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="white">
+      <mj-column width="100%">
+        <mj-text align="center" font-size="18px" font-family="Roboto" font-style="italic" color="#626262">10% Chance of rain</mj-text>
+      </mj-column>
+      <mj-column width="100%">
+        <mj-text align="center" font-size="14px" font-family="Roboto" color="#626262">
+          Cloudy skies throughout the day with a chance of rain throughout the day.
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+  </mj-body>
+</mjml>
